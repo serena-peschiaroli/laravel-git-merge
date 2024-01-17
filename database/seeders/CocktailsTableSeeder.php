@@ -20,7 +20,7 @@ class CocktailsTableSeeder extends Seeder
 
         $cocktails_colore=['rosso','arancione','verde','blu','trasparente'];
 
-        for ($i=0; $i < 10 ; $i++) { 
+        for ($i=0; $i < 12 ; $i++) { 
          
             $cocktails = new Cocktail(); 
             $cocktails->nome = $faker->randomElement($cocktails_name);
