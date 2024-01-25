@@ -26,7 +26,7 @@ class AdminCocktailController extends Controller
      */
     public function create()
     {
-        //
+        return view('cocktails.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class AdminCocktailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

@@ -3,6 +3,8 @@
 @section('content')
 
 <div class="container">
+
+    <a class="btn btn-primary" href="{{route('cocktails.create')}}">aggiungi cocktail</a>
     <table class="table">
         <thead>
             <tr>
