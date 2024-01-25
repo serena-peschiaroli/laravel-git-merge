@@ -43,7 +43,7 @@ class AdminCocktailController extends Controller
         $cocktail-> fill($form_data);
         $cocktail->save();
 
-        return redirect()->route('cocktails.show', ['cocktail' => $cocktail->id]);
+        return redirect()->route('cocktails.show', ['cocktail' => $cocktail->id])->with('message', 'Cocktail ' . $cocktail->nome . ' creato con successo');
     }
 
     /**
@@ -84,7 +84,7 @@ class AdminCocktailController extends Controller
         $new_cocktail = Cocktail::findOrFail($id);
         $new_cocktail->update($form_data);
         
-        return redirect()->route('cocktails.show' , ['cocktail' => $new_cocktail->id]);
+        return redirect()->route('cocktails.show' , ['cocktail' => $new_cocktail->id])->with('message', 'Cocktail ' . $new_cocktail->nome . ' aggiornato con successo');
     }
 
     /**

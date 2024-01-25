@@ -3,6 +3,11 @@
 @section('content')
 
 <div class="container">
+    @if (Session::has('message'))
+            <div class="alert alert-success">
+              {{ Session::get('message') }}
+            </div>
+    @endif
     <a href="{{route('cocktails.index')}}" class="btn btn-primary">Indietro</a>
     <div class="card">
         <h5 class="card-title"><strong>Nome: </strong> {{ $cocktail->nome}}</h5>
