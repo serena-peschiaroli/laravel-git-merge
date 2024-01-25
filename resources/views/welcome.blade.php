@@ -3,6 +3,8 @@
 @section('content')
 <h1 class="text-center mt-2 fs-1">Our Cocktails</h1>
     <div class="container ">
+
+        <a href="{{ route('cocktails.index')}}" class="btn btn-primary">Clicca qui </a>
         
         <div class="row row-cols-4">
             @foreach ($cocktails as $cocktail)

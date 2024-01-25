@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminCocktailController;
 use App\Http\Controllers\CocktailController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [CocktailController::class, 'index'])->name('welcome');
+Route::resource('cocktails', AdminCocktailController::class);
