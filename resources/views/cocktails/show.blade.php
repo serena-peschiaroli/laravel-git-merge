@@ -12,10 +12,6 @@
             <p class="card-text"> <strong>Colore: </strong> {{ $cocktail->colore}}</p>
             <p class="card-text"> <strong>Prezzo: </strong> {{ $cocktail->prezzo}}</p>
         </div>
-        <div class="btn-wrapper">
-            
-            
-        </div>
         
     </div>
 </div>
