@@ -10,7 +10,10 @@
         @csrf
         <div class="mb-1">
             <label for="nome" class="form-label"><strong>Nome</strong></label>
-            <input type="text" class="form-control" id="nome" name="nome" value="{{ old('nome')}}">
+            <input type="text" class="form-control @error('nome') is-invalid @enderror" id="nome" name="nome" value="{{ old('nome')}}">
+            @error('nome')
+            <div class="invalid-feedback"> {{$message}}</div>
+            @enderror
         </div>
 
         <div class="mb-1">
@@ -20,20 +23,29 @@
 
         <div class="mb-1">
             <label for="prezzo" class="form-label"><strong>prezzo</strong></label>
-            <input type="number" class="form-control" id="prezzo" name="prezzo" step="0.01" value="{{ old('prezzo')}}">
+            <input type="number" class="form-control @error('prezzo') is-invalid @enderror" id="prezzo" name="prezzo" step="0.01" value="{{ old('prezzo')}}">
+            @error('prezzo')
+            <div class="invalid-feedback"> {{$message}}</div>
+            @enderror
         </div>
 
         <div class="mb-1">
             <label for="colore" class="form-label"><strong>colore</strong></label>
-            <input type="text" class="form-control" id="colore" name="colore" value="{{ old('colore')}}">
+            <input type="text" class="form-control @error('colore') is-invalid @enderror" id="colore" name="colore" value="{{ old('colore')}}">
+            @error('colore')
+            <div class="invalid-feedback"> {{$message}}</div>
+            @enderror
         </div>
 
         <div class="mb-1">
         <label for="e_alcolico" class="form-label"><strong>sei maggiorenne?</strong></label>
-            <select class="form-select" name="e_alcolico">
+            <select class="form-select @error('e_alcolico') is-invalid @enderror" name="e_alcolico">
                 <option value="">Seleziona la tua preferenza</option>
                 <option @selected(old('e_alcolico') === '1') value="1">alcolico</option>
                 <option @selected(old('e_alcolico') === '0') value="0">analcolico</option>
+                @error('e_alcolico')
+                    <div class="invalid-feedback"> {{$message}}</div>
+                @enderror
             </select>
         </div>
 
