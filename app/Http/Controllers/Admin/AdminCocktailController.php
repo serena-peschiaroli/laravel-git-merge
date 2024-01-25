@@ -98,7 +98,7 @@ class AdminCocktailController extends Controller
         $cocktail = Cocktail::findOrFail($id);
         $cocktail->delete();
 
-        return redirect()->route('cocktails.index')->with('message', 'Cocktail cancellato con successo');
+        return redirect()->route('cocktails.index')->with('message', 'Cocktail ' . $cocktail->nome .  ' cancellato con successo');
 
     }
 }
