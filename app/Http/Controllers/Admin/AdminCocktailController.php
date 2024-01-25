@@ -48,7 +48,8 @@ class AdminCocktailController extends Controller
      */
     public function show($id)
     {
-        //
+        $cocktail= Cocktail::findOrFail($id);
+        return view('cocktails.show', compact('cocktail'));
     }
 
     /**
