@@ -23,6 +23,7 @@
                         <td> {{ $cocktail->e_alcolico ? 'Alcolico' : 'Analcolico' }}</td>
                         <td> 
                             <a href="{{route('cocktails.show', ['cocktail'=>$cocktail->id])}}" class="btn btn-success"> Dettagli </a>
+                            <a href="{{route('cocktails.edit', ['cocktail' =>$cocktail->id])}}" class="btn btn-warning">Modifica</a>
                         </td>
                     </tr>
                 @endforeach

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cocktail;
+use App\Http\Requests\StoreCocktailRequest;
 
 class AdminCocktailController extends Controller
 {
@@ -35,9 +36,14 @@ class AdminCocktailController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCocktailRequest $request)
     {
-        dd($request);
+        $form_data = $request->validated();
+        $cocktail = new Cocktail();
+        $cocktail-> fill($form_data);
+        $cocktail->save();
+
+        return redirect()->route('cocktails.show', ['cocktail' => $cocktail->id]);
     }
 
     /**
@@ -60,7 +66,8 @@ class AdminCocktailController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cocktail = Cocktail::findOrFail($id);
+        return view('cocktails.edit', compact('cocktail'));
     }
 
     /**
