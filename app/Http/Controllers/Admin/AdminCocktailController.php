@@ -77,9 +77,14 @@ class AdminCocktailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreCocktailRequest $request, $id)
     {
-        //
+        $form_data = $request->validated();
+
+        $new_cocktail = Cocktail::findOrFail($id);
+        $new_cocktail->update($form_data);
+        
+        return redirect()->route('cocktails.show' , ['cocktail' => $new_cocktail->id]);
     }
 
     /**

@@ -35,13 +35,12 @@
 
         <div class="mb-1">
             <label for="colore" class="form-label"><strong>colore</strong></label>
-            <input type="text" class="form-control" id="colore" name="colore" value="{{ old('colore', $cocktail->prezzo)}}">
+            <input type="text" class="form-control" id="colore" name="colore" value="{{ old('colore', $cocktail->colore)}}">
         </div>
 
         <div class="mb-1">
         <label for="e_alcolico" class="form-label"><strong>sei maggiorenne?</strong></label>
             <select class="form-select" name="e_alcolico">
-                <option value="">Seleziona la tua preferenza</option>
                 <option @selected(old('e_alcolico', $cocktail->e_alcolico) === '1') value="1">alcolico</option>
                 <option @selected(old('e_alcolico', $cocktail->e_alcolico) === '0') value="0">analcolico</option>
             </select>

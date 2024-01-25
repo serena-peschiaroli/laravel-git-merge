@@ -24,6 +24,7 @@
                         <td> 
                             <a href="{{route('cocktails.show', ['cocktail'=>$cocktail->id])}}" class="btn btn-success"> Dettagli </a>
                             <a href="{{route('cocktails.edit', ['cocktail' =>$cocktail->id])}}" class="btn btn-warning">Modifica</a>
+                            <a href="{{route('cocktails.delete', ['cocktail' =>$cocktail->id])}}" class="btn btn-warning">Cancella</a>
                         </td>
                     </tr>
                 @endforeach
