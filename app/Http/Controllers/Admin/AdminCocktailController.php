@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cocktail;
 use App\Http\Requests\StoreCocktailRequest;
+use App\Models\Ingredient;
 
 class AdminCocktailController extends Controller
 {
@@ -27,7 +28,8 @@ class AdminCocktailController extends Controller
      */
     public function create()
     {
-        return view('cocktails.create');
+        $ingredients = Ingredient::all();
+        return view('cocktails.create', compact('ingredients'));
     }
 
     /**
@@ -42,6 +44,12 @@ class AdminCocktailController extends Controller
         $cocktail = new Cocktail();
         $cocktail-> fill($form_data);
         $cocktail->save();
+
+        if ($request->has('ingredients')){
+            $cocktail->ingredients()->attach($request->ingredients);
+        }
+
+        // dd($request->all());
 
         return redirect()->route('cocktails.show', ['cocktail' => $cocktail->id])->with('message', 'Cocktail ' . $cocktail->nome . ' creato con successo');
     }
