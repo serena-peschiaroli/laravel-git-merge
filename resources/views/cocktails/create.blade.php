@@ -15,6 +15,18 @@
             <div class="invalid-feedback"> {{$message}}</div>
             @enderror
         </div>
+        <div class="mb-1">
+            Seleziona gli ingredienti
+            @foreach ($ingredients as $ingredient)
+            <div class="form-check text-white">
+                <input @checked(in_array($ingredient->id, old('ingredients', []))) type="checkbox" name="ingredients[]" id="ingredient-{{$ingredient->id}}" value="{{$ingredient->id}}" >
+                <label for="ingredient-{{$ingredient->id}}">
+                {{$ingredient->nome}}</label>
+
+            </div>
+                
+            @endforeach
+        </div>
 
         <div class="mb-1">
             <label for="descrizione" class="form-label"><strong>descrizione</strong></label>

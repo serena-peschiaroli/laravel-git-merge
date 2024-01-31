@@ -29,6 +29,7 @@ class StoreCocktailRequest extends FormRequest
             'prezzo' => 'required',
             'colore' => 'required',
             'e_alcolico' => 'required',
+            'ingredients' => 'exists:ingredients,id',
         ];
     }
 
@@ -38,6 +39,7 @@ class StoreCocktailRequest extends FormRequest
             'prezzo.required' => 'Campo obbligatorio',
             'colore.required' => 'Campo obbligatorio',
             'e_alcolico.required' => 'Campo obbligatorio',
+            'ingredients.exists' => 'Campo non valido',
         ];
     }
 }
