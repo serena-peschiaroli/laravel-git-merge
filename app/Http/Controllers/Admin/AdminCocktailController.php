@@ -75,7 +75,8 @@ class AdminCocktailController extends Controller
     public function edit($id)
     {
         $cocktail = Cocktail::findOrFail($id);
-        return view('cocktails.edit', compact('cocktail'));
+        $ingredients = Ingredient::all();
+        return view('cocktails.edit', compact('cocktail', 'ingredients'));
     }
 
     /**
@@ -91,6 +92,12 @@ class AdminCocktailController extends Controller
 
         $new_cocktail = Cocktail::findOrFail($id);
         $new_cocktail->update($form_data);
+
+        if($request->has('ingredients')) {
+            $new_cocktail->ingredients()->sync($request->ingredients);
+        } else {
+            $new_cocktail->ingredients()->sync([]);
+        }
         
         return redirect()->route('cocktails.show' , ['cocktail' => $new_cocktail->id])->with('message', 'Cocktail ' . $new_cocktail->nome . ' aggiornato con successo');
     }
