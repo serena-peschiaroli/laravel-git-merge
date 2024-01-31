@@ -15,6 +15,18 @@
             <p class="card-text"> <strong>Descrizione: </strong> {{ $cocktail->descrizione}}</p>
             <p class="card-text"> <strong>Colore: </strong> {{ $cocktail->colore}}</p>
             <p class="card-text"> <strong>Prezzo: </strong> {{ $cocktail->prezzo}}</p>
+            @if ( count( $cocktail->ingredients) > 0)
+                <p class="card-text"> <strong>Ingredienti: </strong></p>
+                <ul> 
+                    @foreach ($cocktail->ingredients as $ingredient)
+                        <li>
+                            {{ $ingredient->nome}} : {{ $ingredient->quantita_cl}} <span> cl ;</span>
+                        </li>
+                    @endforeach
+                </ul>
+            @else
+                <strong>Nessun ingrediente specificato </strong>
+            @endif
         </div>
     </div>
     <a href="{{route('cocktails.index')}}" class="btn btn-primary mt-2">Indietro</a>
