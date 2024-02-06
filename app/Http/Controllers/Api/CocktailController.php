@@ -17,8 +17,8 @@ class CocktailController extends Controller
         ]);
     }
 
-    public function show($slug) {
-        $cocktail = Cocktail::with('ingredients')->where('slug', $slug)->first();
+    public function show($id) {
+        $cocktail = Cocktail::with('ingredients')->where('id', $id)->first();
 
         if($cocktail){
             return response()->json([
